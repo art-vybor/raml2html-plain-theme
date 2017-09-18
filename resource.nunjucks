@@ -212,7 +212,9 @@
                 {% endif %}
 
                 {% if response.body.length %}
-                  <h5><a href="#" onclick="$('#{{ resource.uniqueId }}_{{ method.method }}_response_body').toggle(); return false">Body</a></h5>
+                  <!-- <h5><a href="#" onclick="$('#{{ resource.uniqueId }}_{{ method.method }}_response_body').toggle(); return false">Body</a></h5> -->
+                  <h5> Body <h5>
+
                   <div class="resource-body" id="{{ resource.uniqueId }}_{{ method.method }}_response_body">
                   {% for b in response.body %}
                     <p><strong>Media type</strong>: {{ b.key }}</p>
@@ -280,8 +282,10 @@
             </div>
           {% endif %}
 
-      <!--
+      
           {% if method.securedBy.length %}
+            <h4>Авторизация</h4>
+
             <div id="{{ resource.uniqueId }}_{{ method.method }}_securedby">
               {% for securedBy in method.securedBy %}
                 {% set securityScheme = securitySchemes[securedBy.schemeName] %}
@@ -323,7 +327,7 @@
               {% endfor %}
             </div>
           {% endif %}
-          -->
+          
         </div>
       </div>
     {% endfor %}
